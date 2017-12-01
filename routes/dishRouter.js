@@ -7,7 +7,13 @@ const dishRouter = express.Router();
 // and populates the body property
 dishRouter.use(bodyParser.json());
 
+// accepts a parameter for the Endpoint route
 dishRouter.route('/')
+
+// by attaching the action to the endpoint you do not need
+// to listen to the app/dishes and you can simply attach the
+// verbs to the current / route and express will interpreate
+// and apply this action to the current endpoint.
 .all((req,res,next) => {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/plain');

@@ -2,6 +2,10 @@ const express = require('express');
 const http = require('http');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
+
+// import the routes
+const dishRouter = require('./routes/dishRouter');
+const dishRouter = require('./routes/dishRouter');
 const dishRouter = require('./routes/dishRouter');
 
 const hostname = 'localhost';
@@ -10,7 +14,11 @@ const port = 3000;
 // middleware then will be use for creating the server
 const app = express();
 
+// mounting routers
+// Meaning that any request to /somenthing
+// will be handled by ,somenthingRouter
 app.use('/routes', dishRouter);
+
 app.use(morgan('dev'));
 // this will only parse data that is in Json format
 // and pass it to the req.body
